@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: netty-pool-sampler
+  cloud:
+    gateway:
+      httpclient:
+        pool:
+          type: elastic
+        #          max-connections: 800
+        #                  type: fixed
+      routes:
+        - id: test
+          uri: http://httpbin.org/
+          predicates:
+          - Path=/**
